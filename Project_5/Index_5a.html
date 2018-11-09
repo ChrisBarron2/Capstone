@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+	
+<head>
+	
+	<title>Tip Calculator in JS and CSS</title>
+	
+	<!-- Normalize.CSS -->
+	<link rel="stylesheet" type="text/css" href="normalize.css">	
+		<!--[if IE]>
+    <script src="http://html5shim.google.code.code/svn/trunk.html5.js>
+</script
+	<![endif]-->
+	
+	<!--Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div id="container">
+			<h1>Tip Calculator</h1>
+			
+			<div id="Calculator">
+			
+				<form>
+					<label>
+						How much was your Bill?<br>				
+					</label>
+					$<input type="text" id="billAmount">
+					<label>
+						<br>
+						<select id="serviceQuality">
+							<option disabled selected value="0">--Choose an option--</option>
+							<option value="0.3">30% - Outstanding</option>
+							<option value="0.2">20% - Good</option>
+							<option value="0.15">15% - It was okay</option>
+							<option value="0.1">10% - Bad</option>
+							<option value="0.05">5% - Terrible</option>
+						</select>
+					
+					</label>
+					<label>
+						What percentage of the bill are you going to tip today?<br>
+						<input type="text" id="totalPeople">
+					</label>
+					<button type="button" id="calculate">Calculate!</button>
+				</form>
+				 
+			
+			
+			
+			<div id="totalTip">
+			
+				<sup>$</sup> <span id="tip">0.00</span>
+				<small id="each">each</small>
+			
+		
+		
+	<!--External Javascript-->
+		<script type="text/javascript" src="tip_calculator2.js"></script>	
+	</body>
+</html>
