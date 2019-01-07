@@ -1,0 +1,37 @@
+'use-strict';
+
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+// Define the model for our user info to be stored on signup
+const UserSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+        unique: true,  //make sure we don't allow re-use of emails
+        trim: true //trim off leading/trailing whitespace
+    },
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    password: {
+        type: String,
+        required: true,
+    }
+});
+
+//A method for authenticating login credentials against the users database
+//Takes email and password from login POST req as arguments
+UserSchema.statics.authenticateUser = function(email, password, callback) {
+    User.findOne({ email: email })
+        .exec(function(error, user) {
+            //handle server/db errors
+            if (error) {
+                return callback(error);
+            } else if (!user) { //handle fruitless lookups
+                const error = new Error('User not found.');
+                error.status = 401;
+                return callback(error);
+            }

@@ -1,0 +1,11 @@
+extends layout
+
+block content    
+  h1 Login:
+  div.w-25
+    form(method='POST' action='/login')
+      div.input-group.mb-3
+        input(type='email' placeholder='User Email' name='email').form-control
+      div.input-group.mb-3
+        input(type='password' placeholder='User Password' name='password').form-control
+      button(href='/register').btn.btn-primary Log Me On!
